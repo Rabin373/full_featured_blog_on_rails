@@ -1,0 +1,29 @@
+<h1 align="center", style="font-family:UnifrakturMaguntia;">Description</h1>
+
+
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+  <ul class="listing">
+    <div class="well col-md-offset-4">
+    <li>Created by: </li>
+      <li><%= link_to gravitar_for(@article.user),user_path(@article.user) %></li>
+      <li class="article-title">
+      <%= link_to @article.user.username, user_path(@article.user) %></li>
+      <li><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></li>
+      </div>
+      </ul>
+  <div class="well well-lg">
+  <div class="article-title">
+  <%= link_to @article.title, article_path(@article) %><br/>
+  </div>
+  <div class="article-body">
+  <%= truncate(@article.description, length: 100) %>
+  </div>
+  <div class="article-actions">
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+      <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure to delete?" }, class: "btn btn-xs btn-danger" %>
+      <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
+      </div>
+      </div>
+      </div>
+      </div>
